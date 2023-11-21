@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luks</title>
+    <style>
+        *{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="formularz" onsubmit="return false;">
+        <label for="liczba1">podaj pierwsza liczbe</label>
+        <input name="liczba1" id="liczba1" type="number"> <br>
+
+        <label for="liczba2">podaj druga liczbe</label>    
+        <input name="liczba2" id="liczba2" type="number"> <br>
+        
+       <button onclick="fun(1);">DODAWANIE</button>
+       <button onclick="fun(2);">ODEJMOWANIE</button>
+       <button onclick="fun(3);">MNOZENIE</button>
+       <button onclick="fun(4);">DZIELENIE</button>
+        <br>
+        <output id="wynik"></output>
+    </form>
+    <script>
+        function fun(operacja){
+            let liczba1=parseInt(document.querySelector("#liczba1").value);
+            let liczba2=parseInt(document.querySelector("#liczba2").value);
+            console.log(liczba1, liczba2)
+            if( isNaN(liczba1) || isNaN(liczba2)) {
+                wynik="liczba ma byc!"
+            }else{
+                    switch(operacja){
+                        case 1:
+                            wynik=liczba1+liczba2;
+                            break;
+                        case 2:
+                        wynik=liczba1-liczba2;
+                            break;
+                        case 3:
+                        wynik=liczba1*liczba2;
+                            break;
+                        case 4:
+                        if(liczba2==0){
+                    wynik="nie dziel przez zero";}
+                    else{
+                        wynik=liczba1/liczba2;
+                            break;
+                    }
+                }
+            }
+            document.querySelector("#wynik").innerHTML=wynik
+
+        }
+    </script>
+</body>
+</html>
