@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick="changeText(this)"> kliknij w txt</h1>
+    <script>
+        function changeText(id){
+            id.innerHTML="nowy txt";
+        }
+    </script>
+    <h1>zdarzenie onchange</h1>
+    <label> wpisz swoje imie
+        <input type="text" id="fname" onchange="eventOnChange()">
+    </label><br/>
+    <label>Wpisz wiek
+        <input type="text" id="sname">
+    </label>
+    <script>
+        function eventOnChange(){
+            let x=document.querySelector("#fname");
+            let y=document.querySelector("#sname");
+            y.value=x.value;
+        }
+    </script>
+    <br><input type="text" id="clr" onfocus="kolor()">
+    <script>
+        function kolor(){
+            document.querySelector("#clr").style.background="yellow";
+        }
+    </script>
+</body>
+</html>
