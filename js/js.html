@@ -32,5 +32,107 @@
             document.querySelector("#clr").style.background="yellow";
         }
     </script>
+    <h1>wyszukiwanie pliku *.gif</h1>
+    <script>
+        let tekst="ikona jest w pliku logo.gif";
+        let wzorzec = /\S*.gif/i;
+        let pozycja = tekst.search(wzorzec);
+        document.write('znaleziono:' + tekst.slice(pozycja));
+    </script>
+
+<h1>wyszukiwanie email</h1>
+<script>
+    const mail="email: johny.zielony@gmail.com";
+    let wzor = /[\W_\.-]+@([-A-z0-9]+\.)+[A-z]/;
+    let poz = mail.search(wzor);
+    document.write(mail.slice(poz));
+</script>
+<form action="">
+    <input type="number" name="waga" min="1" max="200">
+</form>
+<form action="">
+    <label for="liczba">wprowadz liczbe</label>
+    <input type="number" name="liczba" id="liczba">
+    <button type="button" onclick="checknumber()">wyslij</button>
+    <div id="wynik"></div>
+</form>
+<script>
+    function checknumber(){
+        const min=1;
+        const max=10;
+        var result;
+        let liczba=document.querySelector("#liczba").value;
+        if( liczba>=min && liczba <= max){
+            result="dane luks";
+        }else{
+            result="nunu";
+        }
+        document.querySelector("#wynik").innerHTML=result;
+    }
+</script>
+<form name="myform" action="" id="form1">
+    <label for="name">wprowaadz adres email</label>
+    <input type="text" name="email" id="email">
+    <p id="wynik"></p>
+    <input type="submit" value="wyslij" id="send">
+</form>
+<script>
+    document.querySelector("#send").addEventListener("click", chekcmail);
+
+    function chekcmail(){
+        let mailText=document.querySelector("#email").value;
+        let reg_mail= /[\w-\.]+@([-A-z0-9]+\.)+[A-z]/;
+        let position=mailText.search(reg_mail);
+        if(position== -1){
+            document.querySelector("#wynik").innerHTML="nunu";
+            event.preventDefault();
+        }
+        if(mailText==""){
+            document.querySelector("#wynik").innerHTML="nunu puste";
+            return false;
+        }
+    }
+</script>
+<script>
+    function fun(){
+        console.log("wow");
+    }
+    setTimeout(fun, 5000)
+</script>
+<h3>setInterval()-funkcja uruchamia co jakis czas</h3>
+<p id="timer"></p>
+<script>
+function time(){
+    let now=new Date();
+    let hours=now.getHours().toString();
+    let minutes=now.getMinutes().toString();
+    let seconds=now.getSeconds().toString();
+    let currentTime=hours+":"+minutes+":"+seconds;
+    let place=document.querySelector("#timer");
+    place.innerHTML=currentTime;
+}
+setInterval(time, 1000)
+</script>
+<script>
+    let i=0;
+    let person={
+        firstName: "Krzysztof",
+        lastName: "Krawczyk",
+        id: 5,
+        fullName: function(){
+            return this.firstName+" "+this.lastName;
+        }
+    }
+    console.log(typeof(i));
+    console.log(person["lastName"])
+    console.log(person.fullName())
+</script>
+<script>
+    document.write("&nbsp".repeat(79)+"*"+"<br>");
+
+    [0,1,2,3,4,5,6,7,8,1,1].map(x=>
+    {y=x*2+1;document.write("&nbsp".repeat(80-y)+'*'.repeat(y)+"<br>")})
+    document.write("&nbsp".repeat(73)+"🎁🎁🎁"+"<br>");
+</script>
 </body>
 </html>
